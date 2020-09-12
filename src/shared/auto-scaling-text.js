@@ -25,7 +25,7 @@ function AutoScalingText({children}) {
   const scale = getScale(nodeRef.current)
   return (
     <div
-      className={styles.autoScalingText}
+      className={styles.autoScalingText} // className is undefined bc there's no styles, but what if we had some way to get auto scaling text to appear as className even tho at build time webpack is going to generate some generated className.
       style={{transform: `scale(${scale},${scale})`}}
       ref={nodeRef}
       data-testid="total"
