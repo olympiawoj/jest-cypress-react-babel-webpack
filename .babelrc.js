@@ -1,8 +1,10 @@
 const isProd = String(process.env.NODE_ENV) === 'production'
+const isTest = String(process.env.NODE_ENV) === 'test' // jest sets this for us automatically
 
 module.exports = {
   presets: [
-    ['@babel/preset-env', {modules: false}],
+    // if its test, compile in commonjs so it works in node, otherwise dont compile at all and webpack will take over
+    ['@babel/preset-env', {modules: isTest? 'commonjs' : false}],
     '@babel/preset-react',
     [
       '@emotion/babel-preset-css-prop',
