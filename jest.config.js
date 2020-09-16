@@ -10,5 +10,6 @@ module.exports = {
         '\\.module\\.css$':'identity-obj-proxy', // returns a string for path accessed 
         '\\.css$': require.resolve('./test/style-mock.js') // regex pattern
     },
+    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'], // files jest will run after setting up jest testing environment
     snapshotSerializers: ['jest-emotion'],
 }

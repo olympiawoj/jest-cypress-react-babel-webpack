@@ -158,7 +158,7 @@ function Calculator() {
   }
 
   const displayIsNonZero = displayValue !== '0'
-  const clearText = displayIsNonZero ? 'C' : 'AC'
+  const clearText = displayIsNonZero ? 'C' : 'AC' // C is Clear, AC is All Clear (Memory)
 
   return (
     <div className={styles.calculator}>
