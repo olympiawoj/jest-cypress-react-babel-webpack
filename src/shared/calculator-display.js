@@ -1,7 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
 import AutoScalingText from './auto-scaling-text'
 import {getFormattedValue} from './utils'
+
+const DisplayContainer = styled.div(
+  {
+    position: 'relative',
+    lineHeight: '130px',
+    fontSize: '6em',
+    flex: '1',
+  },
+  // determines the color based on the theme - now users can change the theme/way the calculator looks and thats great, however our tests need to change, bc the Calculator display is being rendered in total isolation, which is what we want, except it's being rendered in solation from the ThemeProvider which is required so with these changes, if I run npm t, we get a failed snapshot.
+  ({theme}) => ({
+    color: theme.displayTextColor,
+    background: theme.displayBackgroundColor,
+  }),
+)
 
 function CalculatorDisplay({value, ...props}) {
   const formattedValue = getFormattedValue(
@@ -10,20 +25,9 @@ function CalculatorDisplay({value, ...props}) {
   )
 
   return (
-    <div
-      {...props}
-      id="calculator-display"
-      css={{
-        position: 'relative',
-        color: 'white',
-        background: '#1c191c',
-        lineHeight: '130px',
-        fontSize: '6em',
-        flex: '1',
-      }}
-    >
+    <DisplayContainer {...props}>
       <AutoScalingText>{formattedValue}</AutoScalingText>
-    </div>
+    </DisplayContainer>
   )
 }
 
