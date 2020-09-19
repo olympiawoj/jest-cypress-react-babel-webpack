@@ -5,9 +5,14 @@ import styles from './auto-scaling-text.module.css'
 console.log(styles)
 
 function getScale(node) {
+  debugger
+  console.log(node)
   if (!node) {
+  console.log('in here')
     return 1
   }
+  console.log('not in there')
+
   const parentNode = node.parentNode
 
   const availableWidth = parentNode.offsetWidth
