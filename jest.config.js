@@ -12,4 +12,5 @@ module.exports = {
     },
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'], // files jest will run after setting up jest testing environment
     snapshotSerializers: ['jest-emotion'],
+    collectCoverageFrom: ['**/src/**/*.js'], // array of globs - anything in src directory that ends in .js, collect coverage
 }
